@@ -30,10 +30,26 @@ re = /hel{2,4}o/i; //Must occur exactly {m} amount of time
 re = /hel{2,}o/i; //Must occur at least {m, times}
 
 //Paretheses() - Grouping
-re = /([0-9]x){3}/;
+re = /^([0-9]x){3}$/;
+
+//shorthand character classes
+re = /\w/; //word character - alphanumberic or _
+re = /w+/; // + = one or more
+re = /\W/; // Non-word character ex- !@#%^&*()
+re = /\d/; //Match any digit
+re = /\d+/; //Match any digit 0 or more time
+re = /D/; //Match any Non-digit character
+re = /\s/; //Match any white space character
+re = /\S/; //Match any non-white space character
+re = /Hell/i; //Word boundary
+
+//Assertions
+
+re = /x(?=y)/; //Match x only if followed by y ex- "jaxy"
+re = /x(?!y)/; //Match x only if Not followed by y ex- "jaxy"
 
 //string to match
-const str = "3x3x3x";
+const str = "Hello welcome to Hell";
 //log results
 const result = re.exec(str);
 console.log(result);
